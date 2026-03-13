@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is([data-theme="dark"] *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent1: var(--accent-1);
+  --color-accent2: var(--accent-2);
+  --color-accent3: var(--accent-3);
+  --color-bgPrimary: var(--bg-primary);
+  --color-bgSecondary: var(--bg-secondary);
+  --color-textSecondary: var(--text-secondary);
+  --color-border: var(--border);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-montserrat);
+}
+
+:root {
+  --background: #F2F2F5;
+  /* Títulos: Negro profundo para máximo contraste */
+  --foreground: #121217; 
+  --bg-primary: #F2F2F5;
+  --bg-secondary: #FFFFFF;
+  /* Descripciones: Gris oscuro legible */
+  --text-secondary: #454550; 
+  --accent-1: #AA55F7;
+  --accent-2: #9333EA;
+  --accent-3: #7C22CE;
+  --border: rgba(26, 10, 46, 0.15);
+  --radius: 1rem;
+}
+
+[data-theme="dark"] {
+  --background: #1A0A2E;
+  --foreground: #FFFFFF;
+  --bg-primary: #1A0A2E;
+  --bg-secondary: #2A1A3E;
+  --text-secondary: #BDB8CD;
+  --accent-1: #F9B7FF;
+  --accent-2: #F474FE;
+  --accent-3: #EA40F5;
+  --border: rgba(249, 183, 255, 0.25);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-none;
+  }
+  
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(circle at 30% 40%, var(--accent-1) 0%, transparent 40%),
+      radial-gradient(circle at 70% 60%, var(--accent-3) 0%, transparent 40%);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: -1;
+    animation: bgMove 20s ease infinite;
+  }
+}
+
+@keyframes bgMove {
+  0%, 100% { opacity: 0.05; transform: scale(1); }
+  50% { opacity: 0.08; transform: scale(1.05); }
+}
+
+@layer components {
+  .trailix-card {
+    @apply bg-bgSecondary border border-border backdrop-blur-md rounded-[20px] transition-all duration-300;
+  }
+  
+  .trailix-glow {
+    @apply shadow-[0_0_20px_rgba(170,85,247,0.15)];
+  }
+}
