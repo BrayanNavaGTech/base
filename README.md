@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+#  Instrucciones de Configuración
 
-First, run the development server:
+Para poner en marcha el proyecto localmente, sigue estos pasos del 1 al 3:
 
+1. **Instalar dependencias:**
+Ejecuta el siguiente comando para instalar todos los paquetes necesarios mediante `pnpm`:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Iniciar el servidor de desarrollo:**
+Corre el entorno local; este proceso creará automáticamente el archivo `.env.local` en la raíz de tu proyecto:
+```bash
+pnpm run dev
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+3. **Configurar variables de entorno:**
+Abre el archivo `.env.local` e ingresa las siguientes credenciales para la conexión con el backend de **Convex**:
+```env
+# Deployment used by `npx convex dev`
+CONVEX_DEPLOYMENT=dev:tacit-camel-158 # team: brayan-nava, project: youtedex
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+NEXT_PUBLIC_CONVEX_URL=https://tacit-camel-158.convex.cloud
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+NEXT_PUBLIC_CONVEX_SITE_URL=https://tacit-camel-158.convex.site
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
