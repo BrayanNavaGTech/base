@@ -22,7 +22,6 @@ pnpm run dev
 3. **Configurar variables de entorno:**
 Abre el archivo `.env.local` e ingresa las siguientes credenciales para la conexión con el backend de **Convex**:
 ```env
-# Deployment used by `npx convex dev`
 CONVEX_DEPLOYMENT=dev:tacit-camel-158 # team: brayan-nava, project: youtedex
 
 NEXT_PUBLIC_CONVEX_URL=https://tacit-camel-158.convex.cloud
